@@ -29,7 +29,6 @@ flurryAnalytics = new FlurryAnalytics({
     gender: 'm',                        // valid values are "m", "M", "f" and "F"
     age: 38,
     logLevel: 'ERROR',                  // (VERBOSE, DEBUG, INFO, WARN, ERROR)
-    enablePulse: true,                  // defaults to false (I think :/ )
     enableEventLogging: false,          // should every event show up the app's log, defaults to true
     enableCrashReporting: true,         // should app crashes be recorded in flurry, defaults to false, iOS only
     enableBackgroundSessions: true,     // should the session continue when the app is the background, defaults to false, iOS only

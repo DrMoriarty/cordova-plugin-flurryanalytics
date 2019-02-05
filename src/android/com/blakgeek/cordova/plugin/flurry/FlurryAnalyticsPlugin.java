@@ -167,10 +167,6 @@ public class FlurryAnalyticsPlugin extends CordovaPlugin implements FlurryAgentL
                     FlurryAgent.setAge(options.getInt("age"));
                 }
 
-                if (!options.isNull("enablePulse")) {
-                    builder.withPulseEnabled(options.getBoolean("enablePulse"));
-                }
-
                 switch (options.optString("logLevel").toUpperCase()) {
 
                     case "VERBOSE":

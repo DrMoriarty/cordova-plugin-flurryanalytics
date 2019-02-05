@@ -17,10 +17,6 @@
                 [Flurry setAppVersion:options[@"version"]];
             }
 
-            if ([options valueForKey:@"enablePulse"] != nil) {
-                [Flurry setPulseEnabled:options[@"enablePulse"]];
-            }
-
             if ([options valueForKey:@"continueSessionMillis"] != nil) {
 
                 [Flurry setSessionContinueSeconds:[options[@"continueSessionMillis"] integerValue]];
