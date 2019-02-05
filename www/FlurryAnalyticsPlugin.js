@@ -17,7 +17,6 @@ function FlurryAnalytics(config) {
      gender
      age
      logLevel                    (VERBOSE, DEBUG, INFO, WARN, ERROR)
-     enableLogging               (defaults to false)
      enableEventLogging          (defaults to true)
      enableCrashReporting        (defaults to false, iOS only)
      enableBackgroundSessions    (defaults to false, iOS only)
