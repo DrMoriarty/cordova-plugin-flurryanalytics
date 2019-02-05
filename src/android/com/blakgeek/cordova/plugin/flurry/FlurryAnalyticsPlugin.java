@@ -167,6 +167,10 @@ public class FlurryAnalyticsPlugin extends CordovaPlugin implements FlurryAgentL
                     FlurryAgent.setAge(options.getInt("age"));
                 }
 
+                if (!options.isNull("setReportLocation")) {
+                    FlurryAgent.setReportLocation(options.getBoolean("setReportLocation"));
+                }
+
                 switch (options.optString("logLevel").toUpperCase()) {
 
                     case "VERBOSE":
@@ -191,22 +195,14 @@ public class FlurryAnalyticsPlugin extends CordovaPlugin implements FlurryAgentL
                         break;
                 }
 
+                if (!options.isNull("enableCaptureUncaughtExceptions")) {
+                    builder.withCaptureUncaughtExceptions(options.getBoolean("enableCaptureUncaughtExceptions"));
+                }
 
                 if (!options.isNull("enableEventLogging")) {
-
                     builder.withLogEnabled(options.getBoolean("enableEventLogging"));
                 }
             }
-        /*
-        iOS only noops for Android
-
-        enableEventLogging
-        reportSessionsOnClose
-        reportSessionsOnPause
-        enableSecureTransport
-        enableBackgroundSessions
-        enableCrashReporting
-        */
 
             // app key is the only that is required.
             String appKey = args.getString(0);

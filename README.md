@@ -18,22 +18,33 @@ TODO: add manual installation steps
 TODO: complete usage documentation
 
 ```javascript
-// create a new instance
-flurryAnalytics = new FlurryAnalytics({
-    // requried
-    appKey: '<your app key>',
-    // optional
-    version: 'my_custom_version',       // overrides the version of the app
-    continueSessionSeconds: 3,          // how long can the app be paused before a new session is created, must be less than or equal to five for Android devices
+// Set your options
+var options = {
+    version: 'my_custom_version',           // overrides the version of the app
+    continueSessionSeconds: 3,              // how long can the app be paused before a new session is created, must be less than or equal to five for Android devices
     userId: 'blakgeek',
-    gender: 'm',                        // valid values are "m", "M", "f" and "F"
+    gender: 'm',                            // valid values are "m", "M", "f" and "F"
     age: 38,
-    logLevel: 'ERROR',                  // (VERBOSE, DEBUG, INFO, WARN, ERROR)
-    enableEventLogging: false,          // should every event show up the app's log, defaults to true
-    enableCrashReporting: true,         // should app crashes be recorded in flurry, defaults to false, iOS only
-    enableBackgroundSessions: true,     // should the session continue when the app is the background, defaults to false, iOS only
-    reportSessionsOnClose: false,       // should data be pushed to flurry when the app closes, defaults to true, iOS only
-    reportSessionsOnPause: false        // should data be pushed to flurry when the app is paused, defaults to true, iOS only
+    logLevel: 'ERROR',                      // Set the log level of the internal Flurry SDK logging. (VERBOSE, DEBUG, INFO, WARN, ERROR)
+    enableEventLogging: false,              // Whether to enable internal logging for the Flurry SDK. Defaults to true
+    setReportLocation: false,               // Set whether Flurry should record user location if your app has permission. Defaults to true.
+    enableCaptureUncaughtExceptions: true,  // Android only: True to enable the ability to catch all uncaught exceptions and have them reported back to Flurry. Defaults to false.
+    enableCrashReporting: true,             // iOS only: Enable automatic collection of crash reports. Defaults to false
+    enableBackgroundSessions: true,         // iOS only: Enable reporting of errors and events when application is running in background. Defaults to false.
+    reportSessionsOnClose: false,           // iOS only: Report session data to Flurry when the app is closed. Defaults to true.
+    reportSessionsOnPause: false            // iOS only: Report session data to Flurry when the app is paused. Dfaults to true.
+}
+
+// create a new instance directly
+options.appKey = '<your app key>';
+flurryAnalytics = new FlurryAnalytics(options);
+
+// or create and init it
+flurryAnalytics = new FlurryAnalytics();
+flurryAnalytics.init('<your app key>', options, function(){
+    console.log('Initialised');
+}, function(err) {
+   console.error(['WTF?', err]);
 });
 
 // sets userId for this session
@@ -42,7 +53,6 @@ flurryAnalytics.setUserId('OwnUser', function() {
 }, function(err) {
     console.error(['WTF?', err]);
 });
-
 
 // sets user's age for this session
 flurryAnalytics.setAge(25, function() {

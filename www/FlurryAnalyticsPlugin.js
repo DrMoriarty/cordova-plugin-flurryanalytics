@@ -5,24 +5,7 @@ function FlurryAnalytics(config) {
     if(config) {
         exec(null, null, 'FlurryAnalyticsPlugin', 'initialize', [config.appKey, config]);
     }
-    /*
-     deprecatedd pass the config options in the constructor
-     the only function that is actually required to start tracking sessions
 
-     options:
-
-     version
-     continueSessionSeconds       (must be less than or equal to five for Android)
-     userId
-     gender
-     age
-     logLevel                    (VERBOSE, DEBUG, INFO, WARN, ERROR)
-     enableEventLogging          (defaults to true)
-     enableCrashReporting        (defaults to false, iOS only)
-     enableBackgroundSessions    (defaults to false, iOS only)
-     reportSessionsOnClose       (defaults to true, iOS only)
-     reportSessionsOnPause       (defaults to true, iOS only)
-     */
     this.init = function (appKey /* [options], successCallback, failureCallback */) {
 
         var successCallback,
