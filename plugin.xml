@@ -49,7 +49,7 @@
 
         <source-file src="src/android/com/blakgeek/cordova/plugin/flurry/FlurryAnalyticsPlugin.java" target-dir="src/com/blakgeek/cordova/plugin/flurry/"/>
 
-        <framework src="com.flurry.android:analytics:11+"/>
+        <framework src="com.flurry.android:analytics:13+"/>
         <framework src="src/android/plugin.gradle" custom="true" type="gradleReference"/>
     </platform>
 </plugin>
