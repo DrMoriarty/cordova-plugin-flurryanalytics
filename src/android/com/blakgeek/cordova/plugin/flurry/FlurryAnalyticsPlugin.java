@@ -96,7 +96,7 @@ public class FlurryAnalyticsPlugin extends CordovaPlugin implements FlurryAgentL
         float longitude = (float) args.getDouble(1);
 
         try {
-            FlurryAgent.setLocation(latitude, longitude);
+            //FlurryAgent.setLocation(latitude, longitude);
             callbackContext.success();
         } catch (Exception e) {
             callbackContext.error(e.getMessage());
@@ -116,7 +116,7 @@ public class FlurryAnalyticsPlugin extends CordovaPlugin implements FlurryAgentL
     private void logPageView(CallbackContext callbackContext) {
 
         try {
-            FlurryAgent.onPageView();
+            //FlurryAgent.onPageView();
             callbackContext.success();
         } catch (Exception e) {
             callbackContext.error(e.getMessage());
